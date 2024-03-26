@@ -14,7 +14,7 @@ export default function Nav() {
         },
         {
             path: "/about",
-            name: "about"
+            name: "abouts"
         },
         {
             path: "/contact",
