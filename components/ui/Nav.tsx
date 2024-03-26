@@ -14,11 +14,11 @@ export default function Nav() {
         },
         {
             path: "/about",
-            name: "abouts"
+            name: "aboutss"
         },
         {
             path: "/contact",
-            name: "contact"
+            name: "contacts"
         }
     ]
     return(
