@@ -1,5 +1,5 @@
 "use client";
-
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -7,7 +7,9 @@ import {
   MotionValue,
   motion,
   useMotionValue,
+  useTransform,
 } from "framer-motion";
+
 export default function Nav() {
   const links = [
     {
@@ -19,16 +21,11 @@ export default function Nav() {
       name: "projects",
     },
     {
-      path: "/about",
-      name: "aboutss",
-    },
-    {
       path: "/contact",
-      name: "contacts",
+      name: "contact",
     },
   ];
-
-  const pathName = usePathname;
+  const pathname = usePathname();
   const MotionLink = motion(Link);
 
   const mapRange = (
@@ -61,13 +58,14 @@ export default function Nav() {
   };
 
   return (
-    <nav className=" p-8">
-      <ul className=" flex gap-12">
+    <nav className="p-8">
+      <ul className="flex gap-12">
         <AnimatePresence>
           {links.map((link) => {
             const x = useMotionValue(0);
             const y = useMotionValue(0);
-
+            const textX = useTransform(x, (latest) => latest * 0.5);
+            const textY = useTransform(y, (latest) => latest * 0.5);
             return (
               <motion.li
                 onPointerMove={(event) => {
@@ -83,17 +81,23 @@ export default function Nav() {
               >
                 <MotionLink
                   className={cn(
-                    " font-medium rounded-md text-sm py-2 px-4 transition-all duration-500 ease-out hover:bg-slate-200",
-                    pathName === link.path ? "bg-slate-300" : ""
+                    "font-medium relative rounded-md text-sm py-2 px-4 transition-all duration-500 ease-out hover:bg-slate-200",
+                    pathname === link.path ? "bg-slate-300" : ""
                   )}
                   href={link.path}
                 >
-                  <motion.span>{link.name}</motion.span>
-                  {pathName === link.path ? (
-                    <motion.div>
-                      transition{{ type: "spring" }}
-                      layoutId="underline" className=""
-                    </motion.div>
+                  <motion.span
+                    style={{ x: textX, y: textY }}
+                    className="z-10 relative"
+                  >
+                    {link.name}
+                  </motion.span>
+                  {pathname === link.path ? (
+                    <motion.div
+                      transition={{ type: "spring" }}
+                      layoutId="underline"
+                      className="absolute w-full h-full rounded-md left-0 bottom-0 bg-blue-300"
+                    ></motion.div>
                   ) : null}
                 </MotionLink>
               </motion.li>

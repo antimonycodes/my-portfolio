@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/ui/Nav";
 import Threejs from "@/components/ui/Threejs";
+// import Hero from "@/components/ui/Hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Nav/>
-        <Threejs/>
+        <Nav />
+        <Threejs />
+        {/* <Hero /> */}
         {children}
-        </body>
+      </body>
     </html>
   );
 }
