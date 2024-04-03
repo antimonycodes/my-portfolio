@@ -1,5 +1,8 @@
 "use client";
 import { cn } from "@/lib/utils";
+// import Nav from "./Nav";
+// import DarkMode from "./DarkMode/DarkMode";
+import DarkMode from "./DarkMode/DarkMode";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -13,6 +16,7 @@ import {
 } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
+
 import { useEffect } from "react";
 
 export default function Nav() {
@@ -84,7 +88,7 @@ export default function Nav() {
   return (
     <nav className="p-8 flex items-center justify-between  z-50">
       <div>
-        <h1>LOGO</h1>
+        <motion.h1>ANTIMONY</motion.h1>
       </div>
       <ul className="flex gap-12">
         <AnimatePresence>
@@ -104,7 +108,7 @@ export default function Nav() {
                   x.set(0);
                   y.set(0);
                 }}
-                style={{ x, y, border, boxShadow }}
+                style={{ x, y, border, boxShadow, padding: "0.2rem 0" }}
                 whileHover={{
                   scale: 1.015,
                 }}
@@ -138,6 +142,16 @@ export default function Nav() {
           })}
         </AnimatePresence>
       </ul>
+      <div className=" relative">
+        <DarkMode />
+        <img
+          src="/untitled.jpg"
+          alt=""
+          width="30px"
+          className="
+        absolute z-10 right-0 top-8"
+        />
+      </div>
 
       <div className="absolute inset-0 -z-50">
         <Canvas>
