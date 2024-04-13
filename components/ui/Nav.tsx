@@ -142,7 +142,7 @@ export default function Nav() {
           })}
         </AnimatePresence>
       </ul>
-      <div className=" relative">
+      <div className=" relative z-50">
         <DarkMode />
         <img
           src="/untitled.jpg"
