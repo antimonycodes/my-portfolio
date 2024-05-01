@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import Nav from "./Nav";
+import Herocss from "./Hero.css";
 // import { setInterval } from "timers/promises";
 
 const COLORS_TOP = ["#13FFAAaa", "#1E67C6aa", "#CE84CFaa", "#DD335Caa"]; // Added alpha values for overlay
@@ -158,7 +159,17 @@ export const Hero = () => {
               <FiArrowRight className="transition-transform group-hover:rotate-90 group-active:-rotate-12" />
             </motion.button>
           </motion.div>
-          <div className="basis-[50%]">jlXIhx</div>
+          <div className="basis-[50%]">
+            <div>
+              <motion.div className=" heroanimation bg-emerald-600 ">
+                <motion.img
+                  src="/h.jpg"
+                  alt=""
+                  className=" heroanimation object-cover w-[350px] mix-blend-overlay rounded-full "
+                />
+              </motion.div>
+            </div>
+          </div>
         </div>
 
         <div className="absolute inset-0">

@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/ui/Nav";
 // import Threejs from "@/components/ui/Threejs";
 import { Hero } from "@/components/ui/Hero";
+// import Threejs from "@/components/ui/Threejs";
 // import FuzzyOverlayExample from "@/components/ui/FuzzyOverlayExample";
 // import Hero from "@/components/ui/Hero";
 
